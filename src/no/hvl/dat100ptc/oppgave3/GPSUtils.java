@@ -25,17 +25,25 @@ public class GPSUtils {
 	public static double findMin(double[] da) {
 
 		double min;
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
 		
+		min = da[0];
+		
+		for (double d : da) {
+			if (d < min) {
+				min = d;
+			}
+		}
+		
+		return min;
 	}
+		
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
-		throw new UnsupportedOperationException(TODO.method());
+
 		
-		// TODO
+		return "table of decimals containing lattitudes "
+		
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
