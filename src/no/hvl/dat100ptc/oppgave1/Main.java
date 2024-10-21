@@ -1,5 +1,7 @@
 package no.hvl.dat100ptc.oppgave1;
 
+//import no.hvl.dat100ptc.oppgave1.GPSPoint;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -8,6 +10,7 @@ public class Main {
 		System.out.println("før endring tid: " + gpsPoint.getTime());
 		gpsPoint.setTime(2);
 		System.out.print(gpsPoint.toString());
+		
 	}
-
+	
 }

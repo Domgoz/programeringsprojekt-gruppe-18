@@ -8,6 +8,7 @@ import no.hvl.dat100ptc.oppgave2.GPSData;
 import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
 import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave4.GPSComputer;
+import static java.lang.System.*;
 
 import javax.swing.JOptionPane;
 
@@ -25,32 +26,52 @@ public class ShowProfile extends EasyGraphics {
 		GPSComputer gpscomputer =  new GPSComputer(filename);
 
 		gpspoints = gpscomputer.getGPSPoints();
-		
 	}
 
-	public static void main(String[] args) {
-		launch(args);
+		public static void main(String[] args) {
+			launch(args);
+		}
+	
+		public void run() {
+	
+			int N = gpspoints.length; // number of data points
+			makeWindow("Height profile", 2 * MARGIN + 3 * N, 2 * MARGIN + MAXBARHEIGHT);
+	
+			// top margin + height of drawing area
+			showHeightProfile(MARGIN + MAXBARHEIGHT);
+		}
+	
+		public void showHeightProfile(int ybase) {
+			
+			int x = MARGIN; // første høyde skal tegnes ved MARGIN
+			int h;
+			
+			setColor(0, 0, 200);
+			
+			for (int i = 0; i < gpspoints.length; i++) {
+				h = (int)(gpspoints[i].getElevation() + 0.5);
+				if (h < 0) h = 0;
+				drawLine(MARGIN + i*3, ybase, MARGIN + i*3, ybase - h);
+			}
+			
+			
+				
+			}
+		
+		
+		
+
 	}
 
-	public void run() {
 
-		int N = gpspoints.length; // number of data points
 
-		makeWindow("Height profile", 2 * MARGIN + 3 * N, 2 * MARGIN + MAXBARHEIGHT);
 
-		// top margin + height of drawing area
-		showHeightProfile(MARGIN + MAXBARHEIGHT); 
-	}
 
-	public void showHeightProfile(int ybase) {
-		
-		int x = MARGIN; // første høyde skal tegnes ved MARGIN
-		int y;
-		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
 
-	}
 
-}
+
+
+
+
+
+
